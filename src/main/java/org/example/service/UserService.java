@@ -1,13 +1,11 @@
 package org.example.service;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.example.model.User;
 import org.example.exceptions.NotFoundException;
 import org.example.model.Word;
 import org.example.storage.UserStorage;
 import org.example.validators.UserValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

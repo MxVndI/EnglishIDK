@@ -6,7 +6,6 @@ import org.example.model.User;
 import org.example.model.Word;
 import org.example.service.UserService;
 import org.example.service.WordService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -39,10 +38,9 @@ public class UserController {
         userService.deleteUserById(id);
     }
 
-    //@RequestMapping("/users/{id}/words")
-    @PostMapping("/{id}/words/")
+    @PostMapping("/{id}/words")
     public Word addUserWord(@PathVariable("id") Integer userId, @Valid @RequestBody Word word) {
-        wordService.addWord(word);
+        wordService.addWord(word, userId);
         userService.addUserWord(userId, word);
         return word;
     }

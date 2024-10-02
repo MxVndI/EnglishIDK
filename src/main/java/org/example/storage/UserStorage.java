@@ -1,6 +1,5 @@
 package org.example.storage;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.model.User;
@@ -39,8 +38,9 @@ public class UserStorage {
     }
 
     public void addUserWord(Integer userId, Word word) {
-        Set<Word> userWords = userRepository.findById(userId).get().getWords();
-        userWords.add(word);
-        userRepository.findById(userId).get().setWords(userWords);
+        User user = userRepository.findById(userId).get();
+        Set<Word> userWords = user.getWords();
+        user.setWords(userWords);
+        userRepository.save(user);
     }
 }

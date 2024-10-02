@@ -1,15 +1,13 @@
 package org.example.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Table(name = "words")
 public class Word {
     @Id
